@@ -1,0 +1,32 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <header class="navbar sticky-top flex-md-nowrap p-0 shadow">
+    <input class="form-control" type="text" placeholder="Buscar proyectos" aria-label="Buscar proyectos" [(ngModel)]="searchQuery" (ngModelChange)="filterProjects()">
+  </header>
+  <button type="button" class="btn btn-primary btn-lg">Añadir proyecto</button>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Titulo</th>
+      <th scope="col">Descripción</th>
+      <th scope="col">Estado</th>
+
+      <th scope="col">Editar/Eliminar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let project of displayProjects; let i = index">
+      <th scope="row">{{ i + 1 }}</th>
+      <td>{{ project.title }}</td>
+      <td>{{ project.description }}</td>
+      <td>{{ project.status }}</td>
+
+      <td>
+        <i class="bi bi-pencil mx-2"></i>
+        <i class="bi bi-trash"></i>
+      </td>
+    </tr>
+  </tbody>
+</table>
