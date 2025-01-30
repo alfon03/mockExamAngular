@@ -1,13 +1,13 @@
 import { Routes } from '@angular/router';
-import { ProjectsComponent } from './projects/projects.component';
+import { ProjectsComponent } from './project/project.component';
+import { ProjectFormComponent } from './project-form/project-form.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { ProjectDetailsComponent } from './project-details/project-details.component';
-import { MainComponentComponent } from './main-component/main-component.component';
+import { MainComponent } from './main/main.component';
 
 export const routes: Routes = [
-    {path: 'projects', component: ProjectsComponent  },
-    { path: 'projectsDetails/:id', component: ProjectDetailsComponent },
-    { path: 'projects/:search', component: ProjectsComponent },
-    { path: '', component: MainComponentComponent },
-    { path: '**', component: PageNotFoundComponent },
+  { path: '', component: MainComponent },
+  { path: 'projects', component: ProjectsComponent  },
+  { path: 'projects/add', component: ProjectFormComponent },
+  { path: 'projects/:id', component: ProjectFormComponent  },
+  { path: '**', component: PageNotFoundComponent }
 ];

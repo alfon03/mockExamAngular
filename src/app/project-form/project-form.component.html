@@ -1,0 +1,27 @@
+<h1>{{ isEditMode ? "Editar" : "Añadir" }} Proyecto</h1>
+<form (ngSubmit)="onSubmit()">
+  <div class="mb-3">
+    <label for="title" class="form-label">Nombre</label>
+    <input
+      type="text"
+      class="form-control"
+      id="title"
+      [(ngModel)]="project.title"
+      name="title"
+      required
+    />
+  </div>
+  <div class="mb-3">
+    <label for="description" class="form-label">Descripción</label>
+    <textarea
+      class="form-control"
+      id="description"
+      [(ngModel)]="project.description"
+      name="description"
+      required
+    ></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">
+    {{ isEditMode ? "Actualizar" : "Añadir" }}
+  </button>
+</form>

@@ -1,15 +1,16 @@
 import { Component } from '@angular/core';
-import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
+  imports: [NavbarComponent, FooterComponent],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrl: './app.component.css'
 })
+
 export class AppComponent {
-  title = 'prueba';
+  title = 'myFirstAngularApp';
+  search: string = '';
 }

@@ -1,0 +1,54 @@
+<div class="container mt-4">
+  <!-- Barra de búsqueda y botón de añadir -->
+  <div class="d-flex justify-content-between mb-3">
+    <input
+      type="text"
+      class="form-control w-50"
+      placeholder="Buscar proyectos"
+      [(ngModel)]="searchTerm"
+      (input)="onSearch()"
+    />
+    <button
+      type="button"
+      class="btn btn-primary ms-3"
+      routerLink="/projects/add"
+    >
+      Añadir proyecto
+    </button>
+  </div>
+
+  <!-- Tabla de proyectos -->
+  <table class="table table-striped mt-3">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Descripción</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let project of projects">
+        <th scope="row">{{ project.id }}</th>
+        <td>{{ project.title }}</td>
+        <td>{{ project.description }}</td>
+        <td>
+          <i
+            class="bi bi-pencil mx-2 btn btn-secondary ms-3"
+            (click)="onEdit(project.id ? project.id : 0)"
+            aria-label="Editar proyecto"
+          >
+            editar
+          </i>
+          <i
+            class="bi bi-trash btn btn-danger ms-3"
+            (click)="onDelete(project.id ? project.id : 0)"
+            aria-label="Eliminar proyecto"
+          >
+            eliminar
+          </i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
